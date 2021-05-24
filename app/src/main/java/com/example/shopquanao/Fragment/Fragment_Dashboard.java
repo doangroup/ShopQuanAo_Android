@@ -45,12 +45,12 @@ KhachHangModel model;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<KhachHang> data= null;
+
         try {
-            data = model.getKhachHangList();
+            adapter = new adapter(model.getKhachHangList());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        adapter = new adapter(data);
         listView = view.findViewById(R.id.list_view);
         listView.setAdapter(adapter);
     }

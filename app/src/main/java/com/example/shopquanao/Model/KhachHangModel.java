@@ -21,22 +21,31 @@ Context context;
 
 
     public  ArrayList<KhachHang> getKhachHangList() throws SQLException {
-
         ArrayList<KhachHang> list = new ArrayList<>();
-        Statement statement = con.createStatement();// Tạo đối tượng Statement.
-        String sql = "select * from KhachHang";
-        // Thực thi câu lệnh SQL trả về đối tượng ResultSet. // Mọi kết quả trả về sẽ được lưu trong ResultSet
-        try (ResultSet rs = statement.executeQuery(sql)) {
-            while (rs.next()) {
-                list.add(new KhachHang(rs.getInt("maKhachHang"), rs.getString("tenKhachHang"), rs.getString("diaChi"), rs.getString("sDT"), rs.getString("matKhau")));// Đọc dữ liệu từ ResultSet
-            }
+        try {
+            if (con== null){
+                z = "Error in connection with SQL server";
+
+            }else {
+
+                Statement statement = con.createStatement();// Tạo đối tượng Statement.
+                String sql = "select * from KhachHang";
+                // Thực thi câu lệnh SQL trả về đối tượng ResultSet. // Mọi kết quả trả về sẽ được lưu trong ResultSet
+                try (ResultSet rs = statement.executeQuery(sql)) {
+                    while (rs.next()) {
+                        list.add(new KhachHang(rs.getInt("maKhachHang"), rs.getString("tenKhachHang"), rs.getString("diaChi"), rs.getString("sDT"), rs.getString("matKhau")));// Đọc dữ liệu từ ResultSet
+                    }
+                }
+
+                con.close();// Đóng kết nối
+                 }
         }catch (Exception e)
         {
-            Toast.makeText(context,"loi ket noi",Toast.LENGTH_LONG).show();
-            Log.e("loi sql",e.getMessage());
+            z = "Exceptions";
         }
-        con.close();// Đóng kết nối
         return list;
-    }
+}
+
+
 
 }
