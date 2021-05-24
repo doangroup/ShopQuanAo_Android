@@ -13,7 +13,7 @@ public class JDBCModel {
         StrictMode.setThreadPolicy(policy);
         Connection objConn = null;
         String sConnURL = null;
-        JDBCObject objEntity = new JDBCObject("192.168.1.9", "sa", "sa2012", "QLSHOPQUANAO", "1433");
+        JDBCObject objEntity = new JDBCObject("DESKTOP-1RP7O2E\\SQLEXPRESS", "sa", "sa2012", "QLSHOPQUANAO", "1433");
         try {
             Class.forName(objEntity.getsClass());
             sConnURL = "jdbc:jtds:sqlserver://"
