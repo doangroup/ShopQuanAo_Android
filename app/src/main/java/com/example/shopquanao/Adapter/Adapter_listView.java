@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.shopquanao.Model.DanhMuc;
 import com.example.shopquanao.Model.KhachHang;
 import com.example.shopquanao.Model.KhachHangModel;
 import com.example.shopquanao.R;
@@ -12,10 +13,10 @@ import com.example.shopquanao.R;
 
 import java.util.ArrayList;
 
-public class adapter extends BaseAdapter {
-    final ArrayList<KhachHang> listProduct;
+public class Adapter_listView extends BaseAdapter {
+    final ArrayList<DanhMuc> listProduct;
 
-    public adapter(ArrayList<KhachHang> listProduct) {
+    public Adapter_listView(ArrayList<DanhMuc> listProduct) {
         this.listProduct = listProduct;
     }
 
@@ -27,7 +28,7 @@ public class adapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return listProduct.get(position).getMaKhachHang();
+        return listProduct.get(position).getMaDanhMuc();
     }
 
     @Override
@@ -43,9 +44,9 @@ public class adapter extends BaseAdapter {
         } else viewProduct = convertView;
 
         //Bind sữ liệu phần tử vào View
-       KhachHang product = (KhachHang) getItem(position);
+      DanhMuc product = (DanhMuc) getItem(position);
 
-        ((TextView) viewProduct.findViewById(R.id.textView2)).setText(String.format("Giá %d", product.getTenKhachHang()));
+        ((TextView) viewProduct.findViewById(R.id.textView2)).setText( product.getTenDanhMuc());
 
 
         return viewProduct;

@@ -1,6 +1,8 @@
 package com.example.shopquanao.Model;
 
-public class KhachHang {
+import java.io.Serializable;
+
+public class KhachHang implements Serializable {
     int maKhachHang;
     String tenKhachHang,diaChi,sDT,matKhau;
 

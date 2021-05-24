@@ -12,7 +12,7 @@ public class KhachHangLogin {
         try {
 
             if (con == null) {
-                z = "Error in connection with SQL server";
+                z = "Loi Ket Noi SQL";
             } else {
                 String query = "select * from KhachHang where SDT='" + username + "' and MatKhau='" + password + "'";
                 Statement stmt = con.createStatement();
