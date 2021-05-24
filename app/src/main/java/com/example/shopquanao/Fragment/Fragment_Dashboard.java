@@ -52,7 +52,7 @@ data=model.lay_DanhMuc();
         textView=view.findViewById(R.id.textView2);
 
    //ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(),R.layout.title,data);
-      adapter_listView=new Adapter_listView(data);
+      adapter_listView=new Adapter_listView(getContext(),data);
       listView.setAdapter(adapter_listView);
     }
 }

@@ -1,9 +1,15 @@
 package com.example.shopquanao.Adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.shopquanao.Model.DanhMuc;
 import com.example.shopquanao.Model.KhachHang;
@@ -12,43 +18,31 @@ import com.example.shopquanao.R;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Adapter_listView extends BaseAdapter {
-    final ArrayList<DanhMuc> listProduct;
+public class Adapter_listView extends ArrayAdapter<DanhMuc> {
 
-    public Adapter_listView(ArrayList<DanhMuc> listProduct) {
-        this.listProduct = listProduct;
+    public Adapter_listView(@NonNull Context context, @NonNull List<DanhMuc> objects) {
+        super(context,0, objects);
     }
 
-
+    @NonNull
     @Override
-    public int getCount() {
-        return listProduct.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return listProduct.get(position).getMaDanhMuc();
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View viewProduct;
-        if (convertView == null) {
-            viewProduct = View.inflate(parent.getContext(), R.layout.title, null);
-        } else viewProduct = convertView;
-
-        //Bind sữ liệu phần tử vào View
-      DanhMuc product = (DanhMuc) getItem(position);
-
-        ((TextView) viewProduct.findViewById(R.id.textView2)).setText( product.getTenDanhMuc());
+    public View getView(int position, @Nullable View converView, @NonNull ViewGroup parent) {
 
 
-        return viewProduct;
+        DanhMuc model=getItem(position);
+
+        converView= LayoutInflater.from(getContext()).inflate(R.layout.title,parent,false);
+
+
+        TextView txt_caption=converView.findViewById(R.id.textView2);
+
+
+        txt_caption.setText(model.getTenDanhMuc());
+
+
+        return converView;
     }
 }
+
