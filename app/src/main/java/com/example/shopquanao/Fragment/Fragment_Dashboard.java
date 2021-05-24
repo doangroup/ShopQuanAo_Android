@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.shopquanao.Adapter.Adapter_listView;
+import com.example.shopquanao.Adapter.Adapter_listView_DanhMuc;
 import com.example.shopquanao.Model.DanhMuc;
 import com.example.shopquanao.Model.DanhMucModel;
 import com.example.shopquanao.R;
@@ -23,9 +22,9 @@ public class Fragment_Dashboard extends Fragment {
     ListView listView;
 DanhMucModel model=new DanhMucModel();
 TextView textView,textView_3;
-Adapter_listView adapter_listView;
+Adapter_listView_DanhMuc adapter_listView;
 
-    Adapter_listView adapter;
+    Adapter_listView_DanhMuc adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ data=model.lay_DanhMuc();
         textView=view.findViewById(R.id.textView2);
 
    //ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(),R.layout.title,data);
-      adapter_listView=new Adapter_listView(getContext(),data);
+      adapter_listView=new Adapter_listView_DanhMuc(getContext(),data);
       listView.setAdapter(adapter_listView);
     }
 }
