@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.shopquanao.DB.ConnectionDB;
 import com.example.shopquanao.Model.KhachHangLogin;
 
-public class demo extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     EditText editText_tk, editText_mk;
     Button button;
     ConnectionDB connectionDB;
@@ -21,13 +21,13 @@ public class demo extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.demo);
+        setContentView(R.layout.login);
 
         connectionDB = new ConnectionDB();
 
         editText_tk = findViewById(R.id.editTextTextPersonName);
         editText_mk = findViewById(R.id.editTextTextPassword);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.button_DangNhap);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,9 +36,9 @@ public class demo extends AppCompatActivity {
 
                 KhachHangLogin khachHangLogin = new KhachHangLogin();
                 String kq = khachHangLogin.Login(SDT, MK);
-                Intent myIntent = new Intent(demo.this, Main_Home.class);
+                Intent myIntent = new Intent(Login.this, Main_Home.class);
                 startActivity(myIntent);
-                Toast.makeText(demo.this, kq, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, kq, Toast.LENGTH_SHORT).show();
             }
         });
 

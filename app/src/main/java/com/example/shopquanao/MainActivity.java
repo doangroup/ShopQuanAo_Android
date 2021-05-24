@@ -19,7 +19,7 @@ Handler handler=new Handler();
         @Override
         public void run() {
 
-            Intent i = new Intent(MainActivity.this, demo.class);
+            Intent i = new Intent(MainActivity.this, Login.class);
             startActivity(i);
             finish();
 
