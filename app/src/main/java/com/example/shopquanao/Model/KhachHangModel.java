@@ -20,14 +20,7 @@ Context context;
     }
 
     public  ArrayList<KhachHang> getKhachHangList() throws SQLException {
-        try {
-            if (kt()==true){
-                Log.e("KNTHC","KNTC");
-                System.out.print("KNTC");
-            }
-        }catch(Exception e){
-            Log.e("KNTB","KNTB");
-        }
+
         ArrayList<KhachHang> list = new ArrayList<>();
         Statement statement = connection.createStatement();// Tạo đối tượng Statement.
         String sql = "select * from KhachHang";
