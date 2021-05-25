@@ -6,6 +6,10 @@ public class KhachHang implements Serializable {
     int maKhachHang;
     String tenKhachHang,diaChi,sDT,matKhau;
 
+    public KhachHang() {
+
+    }
+
     public int getMaKhachHang() {
         return maKhachHang;
     }

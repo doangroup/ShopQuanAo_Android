@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,11 +17,14 @@ import com.example.shopquanao.Model.KhachHangModel;
 import com.example.shopquanao.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Fragment_Account extends Fragment {
     TextView textView_ten,textView_dc,textView_sdt,textView_mk;
     KhachHangModel khachHangModel=new KhachHangModel();
     ArrayList<KhachHang> arrayList;
+    Button button;
+    KhachHang khachHang = new KhachHang();
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +47,36 @@ public class Fragment_Account extends Fragment {
         textView_sdt=view.findViewById(R.id.editTextTextPassword);
         textView_mk=view.findViewById(R.id.editTextTextPassword2);
 
-        textView_ten.setText(arrayList.get(0).getTenKhachHang());
-        textView_dc.setText(arrayList.get(0).getDiaChi());
-        textView_sdt.setText(arrayList.get(0).getsDT());
-        textView_mk.setText(arrayList.get(0).getMatKhau());
+       button=view.findViewById(R.id.btn_signin);
+       button.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               final int min = 1;
+               final int max = 80000;
+               Random random= new Random();
+               int maKhach=random.nextInt((max - min) + 1) + min;
+
+               boolean kiemTra=false;
+
+               khachHang.setMaKhachHang(maKhach);
+               khachHang.setTenKhachHang(textView_ten.getText().toString());
+               khachHang.setDiaChi(textView_dc.getText().toString());
+               khachHang.setsDT(textView_sdt.getText().toString());
+               khachHang.setMatKhau(textView_mk.getText().toString());
+
+kiemTra=khachHangModel.DangKyThanhVien(khachHang.getMaKhachHang(),khachHang.getTenKhachHang(), khachHang.getDiaChi(), khachHang.getsDT(),khachHang.getMatKhau());
+
+               if(kiemTra==true)
+               {
+                   Toast.makeText(getContext(),"Đăng ký thành công",Toast.LENGTH_LONG).show();
+               }
+               else
+               {
+                   Toast.makeText(getContext(),"Đăng ký thất bại",Toast.LENGTH_LONG).show();
+               }
+
+           }
+       });
     }
 }

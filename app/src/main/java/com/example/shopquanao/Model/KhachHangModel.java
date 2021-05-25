@@ -32,7 +32,7 @@ public class KhachHangModel {
                     arrayList.add(new KhachHang(rs.getInt("MaKH"),rs.getString("TenKH"),rs.getString("DiaChi"),rs.getString("SDT"),rs.getString("MatKhau")));// Đọc dữ liệu từ ResultSet
                 }
 
-                con.close();// Đóng kết nối
+             //   con.close();// Đóng kết nối
             }
         }catch (Exception e)
         {
@@ -41,9 +41,11 @@ public class KhachHangModel {
         return  arrayList;
     }
 
-    public boolean DangKyThanhVien(String userName, String password, String cmnd){
+    public boolean DangKyThanhVien(int maKH,String tenKH,String diaChi,String SDT,String matKhau){
+
         try {
-            PreparedStatement statement = con.prepareStatement("EXEC sp_NhanVien '"+userName+"','"+password+"','"+cmnd+"'");
+
+            PreparedStatement statement = con.prepareStatement("exec DangKyThanhVien'"+maKH+"','"+tenKH+"','"+diaChi+"','"+SDT+"','"+matKhau+"'");
             kiemTra = true;
             rs = statement.executeQuery();
             con.close();
