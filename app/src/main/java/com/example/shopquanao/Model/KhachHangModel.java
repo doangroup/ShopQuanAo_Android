@@ -41,5 +41,16 @@ public class KhachHangModel {
         return  arrayList;
     }
 
+    public boolean DangKyThanhVien(String userName, String password, String cmnd){
+        try {
+            PreparedStatement statement = con.prepareStatement("EXEC sp_NhanVien '"+userName+"','"+password+"','"+cmnd+"'");
+            kiemTra = true;
+            rs = statement.executeQuery();
+            con.close();
+        } catch (Exception ex) {
+            z = "Exceptions";
+        }
 
+        return kiemTra;
+    }
 }
