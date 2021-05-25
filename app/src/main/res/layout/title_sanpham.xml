@@ -17,8 +17,8 @@
     android:paddingTop="10dp">
     <ImageView
         android:id="@+id/image_Hinh_sanPham"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400px"
+        android:layout_height="400px"
 
         android:adjustViewBounds="true"
         tools:srcCompat="@tools:sample/avatars"></ImageView>

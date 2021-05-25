@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,6 +45,17 @@ public class Fragment_Home extends Fragment {
         listView=view.findViewById(R.id.list_view_2);
         arrayList=sanPhamModel.lay_SanPham();
         adapter_listView_sanPham=new Adapter_listView_SanPham(getContext(),arrayList);
+          listView.setClickable(true);
         listView.setAdapter(adapter_listView_sanPham);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object o =  listView.getItemAtPosition(position);
+
+                    Toast.makeText(view.getContext(), "You clicked " + o.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+
+        });
     }
 }
