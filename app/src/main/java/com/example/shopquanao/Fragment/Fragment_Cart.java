@@ -16,7 +16,7 @@ import com.example.shopquanao.R;
 public class Fragment_Cart extends Fragment {
     RecyclerView recycler_itemlist;
     public static TextView tv_total;
-  
+
     public static int total=0;
     String jsonCartList;
     @Override

@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 
 public class Fragment_Home extends Fragment {
     ListView listView;
-    TextView textView;
+
     SanPhamModel sanPhamModel = new SanPhamModel();
 
     Adapter_listView_SanPham adapter_listView_sanPham;
@@ -40,7 +39,7 @@ public class Fragment_Home extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<SanPham> arrayList;
-        textView=view.findViewById(R.id.textView3);
+
         listView=view.findViewById(R.id.list_view_2);
         arrayList=sanPhamModel.lay_SanPham();
         adapter_listView_sanPham=new Adapter_listView_SanPham(getContext(),arrayList);
