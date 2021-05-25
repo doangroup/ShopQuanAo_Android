@@ -51,7 +51,7 @@ public interface OnItemClickListener {
         Context c = context;
         int id = c.getResources().getIdentifier("drawable/"+sp.getHinhAnh().replace(".jpg",""), null, c.getPackageName());
         holder.txt_tenSP.setText(arrayList.get(position).getTenSP());
-        holder.txt_gia.setText(arrayList.get(position).getDonGia());
+        holder.txt_gia.setText(String.valueOf(arrayList.get(position).getDonGia()));
         holder.imageView.setImageResource(id);
 
 

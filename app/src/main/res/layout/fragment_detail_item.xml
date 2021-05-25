@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/imgae_view_deatail"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/backgroud"
             tools:srcCompat="@tools:sample/avatars"></ImageView>
@@ -47,10 +47,10 @@
 
             <Button
                 android:id="@+id/btn_themgioHang_Detail"
-                android:layout_width="240dp"
-                android:layout_height="115dp"
+                android:layout_width="217dp"
+                android:layout_height="61dp"
                 android:text="Thêm Vào Giỏ Hàng"
-                android:textSize="30dp"
+                android:textSize="12dp"
                 android:textStyle="bold"></Button>
         </LinearLayout>
         <LinearLayout
