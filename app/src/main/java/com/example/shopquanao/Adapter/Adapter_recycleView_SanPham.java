@@ -57,7 +57,10 @@ public interface OnItemClickListener {
 
 
     }
-
+    public void UpdateList(ArrayList<SanPham> tam){
+        arrayList=tam;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return arrayList.size();

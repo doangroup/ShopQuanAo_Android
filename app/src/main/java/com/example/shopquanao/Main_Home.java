@@ -1,7 +1,10 @@
 package com.example.shopquanao;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main_Home extends AppCompatActivity {
     BottomNavigationView navView;
+    EditText searchView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +28,16 @@ public class Main_Home extends AppCompatActivity {
         navView=findViewById(R.id.nav_view_thuvien);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         navView.setSelectedItemId(R.id.nav_home);
+        searchView= findViewById(R.id.search_view);
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main_Home.this,Search_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
