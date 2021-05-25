@@ -14,10 +14,12 @@ import com.example.shopquanao.Model.DanhMuc;
 import com.example.shopquanao.R;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter_listView_DanhMuc extends ArrayAdapter<DanhMuc> {
 
+    ArrayList<DanhMuc> arrayList;
     public Adapter_listView_DanhMuc(@NonNull Context context, @NonNull List<DanhMuc> objects) {
         super(context,0, objects);
     }

@@ -20,6 +20,7 @@
         <activity android:name=".Main_Home" />
         <activity android:name=".Login" />
         <activity android:name=".Detail_Item_Activity" />
+        <activity android:name=".DashBoard_Activity" />
     </application>
 
 </manifest>
