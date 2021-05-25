@@ -17,12 +17,12 @@ import java.util.ArrayList;
 
 public class Adapter_recycleView_SanPham extends RecyclerView.Adapter<Adapter_recycleView_SanPham.SanPhamHolder> {
 @NonNull
-    String url = "https://huychimnonblog.000webhostapp.com/image/";
 
-            ArrayList<SanPham> arrayList;
+
+ArrayList<SanPham> arrayList;
         Context context;
 private OnItemClickListener mOnItemClickListener;
-        
+
 
 
 public Adapter_recycleView_SanPham(ArrayList<SanPham> arrayList, Context context) {
