@@ -72,6 +72,7 @@ public class Search_Activity extends AppCompatActivity implements Adapter_recycl
         Toast.makeText(this, ""+position, Toast.LENGTH_LONG).show();
 
         Intent i = new Intent(this, Detail_Item_Activity.class);
+        i.putExtra("MaSP", arrayList.get(position).getMaSP());
         i.putExtra("TenSP", arrayList.get(position).getTenSP());
         i.putExtra("DonGia",arrayList.get(position).getDonGia());
         i.putExtra("HinhAnh", arrayList.get(position).getHinhAnh());

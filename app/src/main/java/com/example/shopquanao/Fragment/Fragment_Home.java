@@ -61,6 +61,7 @@ SanPham sanPham;
         Toast.makeText(getContext(), ""+position, Toast.LENGTH_LONG).show();
 
         Intent i = new Intent(getContext(), Detail_Item_Activity.class);
+        i.putExtra("MaSP", arrayList.get(position).getMaSP());
         i.putExtra("TenSP", arrayList.get(position).getTenSP());
         i.putExtra("DonGia",arrayList.get(position).getDonGia());
         i.putExtra("HinhAnh", arrayList.get(position).getHinhAnh());

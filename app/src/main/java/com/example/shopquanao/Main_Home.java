@@ -16,15 +16,25 @@ import com.example.shopquanao.Fragment.Fragment_Account;
 import com.example.shopquanao.Fragment.Fragment_Cart;
 import com.example.shopquanao.Fragment.Fragment_Dashboard;
 import com.example.shopquanao.Fragment.Fragment_Home;
+import com.example.shopquanao.Model.GioHang;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class Main_Home extends AppCompatActivity {
     BottomNavigationView navView;
     EditText searchView;
+    public static ArrayList<GioHang> arrayList_GioHang;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_home);
+        if (arrayList_GioHang!=null)
+        {
+
+        }else {
+            arrayList_GioHang=new ArrayList<>();
+        }
         navView=findViewById(R.id.nav_view_thuvien);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         navView.setSelectedItemId(R.id.nav_home);
