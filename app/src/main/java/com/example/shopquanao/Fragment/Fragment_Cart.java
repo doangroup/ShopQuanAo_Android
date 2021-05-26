@@ -17,8 +17,7 @@ public class Fragment_Cart extends Fragment {
     RecyclerView recycler_itemlist;
     public static TextView tv_total;
 
-    public static int total=0;
-    String jsonCartList;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

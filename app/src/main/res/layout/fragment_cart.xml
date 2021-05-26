@@ -1,51 +1,90 @@
-<RelativeLayout android:background="#e1e1e1"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-        android:id="@+id/layout_total"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-        android:weightSum="2">
-        <TextView android:gravity="end"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:text="Total : "
-            android:textSize="20dp">
-        </TextView>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
 
-        <TextView
-            android:id="@+id/tv_total"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:text="0 Rs"
-            android:textSize="20dp">
-        </TextView>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_thongbao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giỏ Hàng Trống"
+                android:textSize="30sp"></TextView>
+
+            <ListView
+                android:id="@+id/listview_giohang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </FrameLayout>
+
     </LinearLayout>
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_cart"
-        android:layout_above="@+id/btn_placeorder"
-        android:layout_below="@+id/layout_total"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-    </android.support.v7.widget.RecyclerView>
-
-
-    <Button
-        android:id="@+id/btn_placeorder"
-        android:layout_gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_height="60dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:onClick="insertOrder"
-        android:text="Place Order"
-        android:textColor="@android:color/white"
-        >
-    </Button>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tổng Tiền:"
+                    android:textColor="#f20"
+                    android:textSize="30sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right|center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tổng "
+                    android:textColor="#f20"
+                    android:textSize="30sp"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/btn_ThanhToan"
+        android:text="Thanh Toán"
+        android:textSize="20sp"
+        android:textColor="#26a14b"></Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/btn_TiepTucMuaHang"
+        android:text="Tiếp Tục Mua Hàng"
+        android:textSize="20sp"
+        android:textColor="#26a14b"></Button>
+</LinearLayout>

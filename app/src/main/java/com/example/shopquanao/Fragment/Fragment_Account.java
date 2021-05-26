@@ -1,5 +1,6 @@
 package com.example.shopquanao.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.shopquanao.Login;
 import com.example.shopquanao.Model.KhachHang;
 import com.example.shopquanao.Model.KhachHangModel;
 import com.example.shopquanao.R;
@@ -23,7 +25,7 @@ public class Fragment_Account extends Fragment {
     TextView textView_ten,textView_dc,textView_sdt,textView_mk;
     KhachHangModel khachHangModel=new KhachHangModel();
     ArrayList<KhachHang> arrayList;
-    Button button;
+    Button button,button2;
     KhachHang khachHang = new KhachHang();
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,6 +72,10 @@ kiemTra=khachHangModel.DangKyThanhVien(khachHang.getMaKhachHang(),khachHang.getT
                if(kiemTra==true)
                {
                    Toast.makeText(getContext(),"Đăng ký thành công",Toast.LENGTH_LONG).show();
+                   Intent i=new Intent(getContext(), Login.class);
+                   i.putExtra("a1",textView_sdt.getText().toString());
+                   i.putExtra("a2",textView_mk.getText().toString());
+                   startActivity(i);
                }
                else
                {
@@ -78,5 +84,19 @@ kiemTra=khachHangModel.DangKyThanhVien(khachHang.getMaKhachHang(),khachHang.getT
 
            }
        });
+
+
+       button2= view.findViewById(R.id.btn_cancel);
+       button2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i = new Intent(getContext(), Login.class);
+
+               getContext().startActivity(i);
+
+           }
+       });
     }
+
+
 }

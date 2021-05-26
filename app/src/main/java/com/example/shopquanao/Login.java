@@ -17,6 +17,7 @@ public class Login extends AppCompatActivity {
     EditText editText_tk, editText_mk;
     Button button;
     ConnectionDB connectionDB;
+    String tk_SDT,tk_MK;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,17 +26,25 @@ public class Login extends AppCompatActivity {
 
         connectionDB = new ConnectionDB();
 
+        Intent intent = getIntent();
+        tk_SDT = intent.getStringExtra("a1");
+        tk_MK = intent.getStringExtra("a2");
+
         editText_tk = findViewById(R.id.editTextTextPersonName);
         editText_mk = findViewById(R.id.editTextTextPassword);
+
+        editText_tk.setText(tk_SDT);
+        editText_mk.setText(tk_MK);
+
         button = findViewById(R.id.button_DangNhap);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String SDT = editText_tk.getText().toString();
-                String MK = editText_mk.getText().toString();
+                tk_SDT = editText_tk.getText().toString();
+                tk_MK = editText_mk.getText().toString();
 
                 KhachHangLogin khachHangLogin = new KhachHangLogin();
-                String kq = khachHangLogin.Login(SDT, MK);
+                String kq = khachHangLogin.Login(tk_SDT, tk_MK);
                 Intent myIntent = new Intent(Login.this, Main_Home.class);
                 startActivity(myIntent);
                 Toast.makeText(Login.this, kq, Toast.LENGTH_SHORT).show();
