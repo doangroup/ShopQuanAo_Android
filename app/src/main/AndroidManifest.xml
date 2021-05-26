@@ -22,6 +22,7 @@
         <activity android:name=".Detail_Item_Activity" />
         <activity android:name=".DashBoard_Activity" />
         <activity android:name=".Search_Activity" />
+        <activity android:name=".XacNhanDonHang_Activity" />
     </application>
 
 </manifest>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,7 @@ public class Login extends AppCompatActivity {
     Button button;
     ConnectionDB connectionDB;
     String tk_SDT,tk_MK;
-
+    QuanLySession session;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +46,9 @@ public class Login extends AppCompatActivity {
                 String kq = khachHangLogin.Login(tk_SDT, tk_MK);
                 Intent myIntent = new Intent(Login.this, Main_Home.class);
                 startActivity(myIntent);
-                Toast.makeText(Login.this, kq, Toast.LENGTH_SHORT).show();
+session.createLoginSession(tk_SDT,tk_MK);
+
+                finish();
             }
         });
 
