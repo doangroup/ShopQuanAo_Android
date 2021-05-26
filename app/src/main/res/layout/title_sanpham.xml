@@ -60,16 +60,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mua"
+        android:text="Thêm vào giỏ hàng"
         android:textStyle="bold"
         android:id="@+id/btn_mua"></Button>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chi Tiết"
-        android:textStyle="bold"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/btn_chitiet_sp"></Button>
+
 </LinearLayout>
 
 </LinearLayout>

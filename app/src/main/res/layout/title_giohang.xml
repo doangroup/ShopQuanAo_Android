@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="3">
+
+        <ImageView
+            android:id="@+id/image_cart"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_ten_item_GioHnag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Ten Mon Hang"
+            android:textColor="#10100f"
+            android:textSize="25sp"></TextView>
+
+        <TextView
+            android:id="@+id/txt_gia_gio_hang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="5dp"
+            android:text="Gia"
+            android:textColor="#f20"
+            android:textSize="25sp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_tru_gioHang"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:focusable="false"
+                android:text="-"
+                android:textSize="30sp"></Button>
+
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/btn_So_gioHang"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:focusable="false"
+                android:text="1"
+
+                android:textSize="30sp"></Button>
+
+            <Button
+                android:id="@+id/btn_cong_gioHang"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:focusable="false"
+                android:text="+"
+                android:textSize="30sp"></Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

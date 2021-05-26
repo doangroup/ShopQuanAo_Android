@@ -24,11 +24,15 @@ import java.util.ArrayList;
 
 public class Fragment_Home extends Fragment implements Adapter_recycleView_SanPham.OnItemClickListener {
     ListView listView;
-RecyclerView recyclerView;
+    RecyclerView recyclerView;
     SanPhamModel sanPhamModel = new SanPhamModel();
-Adapter_recycleView_SanPham adapter_recycleView_sanPham;
-SanPham sanPham;
-    ArrayList<SanPham> arrayList= new ArrayList<>();;
+    Adapter_recycleView_SanPham adapter_recycleView_sanPham;
+    SanPham sanPham;
+
+
+    ArrayList<SanPham> arrayList = new ArrayList<>();
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +41,7 @@ SanPham sanPham;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home,container,false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
@@ -45,9 +49,9 @@ SanPham sanPham;
         super.onViewCreated(view, savedInstanceState);
 
 
-       recyclerView=view.findViewById(R.id.list_view_2);
-        arrayList=sanPhamModel.lay_SanPham();
-       adapter_recycleView_sanPham=new Adapter_recycleView_SanPham(arrayList,getContext());
+        recyclerView = view.findViewById(R.id.list_view_2);
+        arrayList = sanPhamModel.lay_SanPham();
+        adapter_recycleView_sanPham = new Adapter_recycleView_SanPham(arrayList, getContext());
         recyclerView.setAdapter(adapter_recycleView_sanPham);
         adapter_recycleView_sanPham.setOnItemClickListener(Fragment_Home.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -55,18 +59,20 @@ SanPham sanPham;
     }
 
 
-    @Override
-    public void onItemClick(int position) {
-        sanPham = arrayList.get(position);
-        Toast.makeText(getContext(), ""+position, Toast.LENGTH_LONG).show();
 
-        Intent i = new Intent(getContext(), Detail_Item_Activity.class);
-        i.putExtra("MaSP", arrayList.get(position).getMaSP());
-        i.putExtra("TenSP", arrayList.get(position).getTenSP());
+
+@Override
+public void onItemClick(int position){
+        sanPham=arrayList.get(position);
+        Toast.makeText(getContext(),""+position,Toast.LENGTH_LONG).show();
+
+        Intent i=new Intent(getContext(),Detail_Item_Activity.class);
+        i.putExtra("MaSP",arrayList.get(position).getMaSP());
+        i.putExtra("TenSP",arrayList.get(position).getTenSP());
         i.putExtra("DonGia",arrayList.get(position).getDonGia());
-        i.putExtra("HinhAnh", arrayList.get(position).getHinhAnh());
+        i.putExtra("HinhAnh",arrayList.get(position).getHinhAnh());
 
         getContext().startActivity(i);
-    }
+        }
 
-}
+        }
