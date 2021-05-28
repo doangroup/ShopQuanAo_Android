@@ -16,17 +16,22 @@ import androidx.fragment.app.Fragment;
 import com.example.shopquanao.Login;
 import com.example.shopquanao.Model.KhachHang;
 import com.example.shopquanao.Model.KhachHangModel;
+import com.example.shopquanao.Model.QuanLySession;
 import com.example.shopquanao.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Fragment_Account extends Fragment {
-    TextView textView_ten,textView_dc,textView_sdt,textView_mk;
-    KhachHangModel khachHangModel=new KhachHangModel();
+    TextView textView_ten, textView_dc, textView_sdt, textView_mk;
+    KhachHangModel khachHangModel = new KhachHangModel();
     ArrayList<KhachHang> arrayList;
-    Button button,button2;
+    Button button, button2;
     KhachHang khachHang = new KhachHang();
+    QuanLySession session;
+    String ten, dc, sdt, mk;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,67 +40,75 @@ public class Fragment_Account extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_account,container,false);
+        return inflater.inflate(R.layout.fragment_account, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        arrayList=khachHangModel.lay_KhachHang();
+        arrayList = khachHangModel.lay_KhachHang();
+        session = new QuanLySession(getContext());
 
-        textView_ten=view.findViewById(R.id.editTextTextPersonName2);
-        textView_dc=view.findViewById(R.id.editTextTextPersonName3);
-        textView_sdt=view.findViewById(R.id.editTextTextPassword);
-        textView_mk=view.findViewById(R.id.editTextTextPassword2);
+        textView_ten = view.findViewById(R.id.editTextTextPersonName2);
+        textView_dc = view.findViewById(R.id.editTextTextPersonName3);
+        textView_sdt = view.findViewById(R.id.editTextTextPassword);
+        textView_mk = view.findViewById(R.id.editTextTextPassword2);
 
-       button=view.findViewById(R.id.btn_signin);
-       button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        HashMap<String, String> user = session.getUserDetails();
+        ten = user.get(QuanLySession.KEY_ten);
+        dc = user.get(QuanLySession.KEY_dc);
+        sdt = user.get(QuanLySession.KEY_sdt);
+        mk = user.get(QuanLySession.KEY_mk);
 
-               final int min = 1;
-               final int max = 80000;
-               Random random= new Random();
-               int maKhach=random.nextInt((max - min) + 1) + min;
+        textView_ten.setText(ten);
+        textView_dc.setText(dc);
+        textView_sdt.setText(sdt);
+        textView_mk.setText(mk);
 
-               boolean kiemTra=false;
+        button = view.findViewById(R.id.btn_signin);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-               khachHang.setMaKhachHang(maKhach);
-               khachHang.setTenKhachHang(textView_ten.getText().toString());
-               khachHang.setDiaChi(textView_dc.getText().toString());
-               khachHang.setsDT(textView_sdt.getText().toString());
-               khachHang.setMatKhau(textView_mk.getText().toString());
+                final int min = 1;
+                final int max = 80000;
+                Random random = new Random();
+                int maKhach = random.nextInt((max - min) + 1) + min;
 
-kiemTra=khachHangModel.DangKyThanhVien(khachHang.getMaKhachHang(),khachHang.getTenKhachHang(), khachHang.getDiaChi(), khachHang.getsDT(),khachHang.getMatKhau());
+                boolean kiemTra = false;
 
-               if(kiemTra==true)
-               {
-                   Toast.makeText(getContext(),"Đăng ký thành công",Toast.LENGTH_LONG).show();
-                   Intent i=new Intent(getContext(), Login.class);
-                   i.putExtra("a1",textView_sdt.getText().toString());
-                   i.putExtra("a2",textView_mk.getText().toString());
-                   startActivity(i);
-               }
-               else
-               {
-                   Toast.makeText(getContext(),"Đăng ký thất bại",Toast.LENGTH_LONG).show();
-               }
+                khachHang.setMaKhachHang(maKhach);
+                khachHang.setTenKhachHang(textView_ten.getText().toString());
+                khachHang.setDiaChi(textView_dc.getText().toString());
+                khachHang.setsDT(textView_sdt.getText().toString());
+                khachHang.setMatKhau(textView_mk.getText().toString());
 
-           }
-       });
+                kiemTra = khachHangModel.DangKyThanhVien(khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.getDiaChi(), khachHang.getsDT(), khachHang.getMatKhau());
+
+                if (kiemTra == true) {
+                    Toast.makeText(getContext(), "Đăng ký thành công", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getContext(), Login.class);
+                    i.putExtra("a1", textView_sdt.getText().toString());
+                    i.putExtra("a2", textView_mk.getText().toString());
+                    i.putExtra("a3", textView_ten.getText().toString());
+                    i.putExtra("a4", textView_dc.getText().toString());
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getContext(), "Đăng ký thất bại", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
 
 
-       button2= view.findViewById(R.id.btn_cancel);
-       button2.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent i = new Intent(getContext(), Login.class);
-
-               getContext().startActivity(i);
-
-           }
-       });
+        button2 = view.findViewById(R.id.btn_cancel);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session.logoutUser();
+            }
+        });
     }
 
 

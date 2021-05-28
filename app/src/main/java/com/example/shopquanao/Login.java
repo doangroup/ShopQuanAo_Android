@@ -11,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shopquanao.DB.ConnectionDB;
 import com.example.shopquanao.Model.KhachHangLogin;
+import com.example.shopquanao.Model.QuanLySession;
 
 public class Login extends AppCompatActivity {
     EditText editText_tk, editText_mk;
     Button button;
     ConnectionDB connectionDB;
-    String tk_SDT,tk_MK;
+    String tk_SDT,tk_MK,tk_ten,tk_dc;
     QuanLySession session;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,8 +25,11 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
 
         connectionDB = new ConnectionDB();
+        session = new QuanLySession(getApplicationContext());
 
         Intent intent = getIntent();
+        tk_ten=intent.getStringExtra("a3");
+        tk_dc=intent.getStringExtra("a4");
         tk_SDT = intent.getStringExtra("a1");
         tk_MK = intent.getStringExtra("a2");
 
@@ -44,12 +48,12 @@ public class Login extends AppCompatActivity {
 
                 KhachHangLogin khachHangLogin = new KhachHangLogin();
                 String kq = khachHangLogin.Login(tk_SDT, tk_MK);
+                session.createLoginSession(tk_ten,tk_dc,tk_SDT,tk_MK);
                 Intent myIntent = new Intent(Login.this, Main_Home.class);
                 startActivity(myIntent);
-session.createLoginSession(tk_SDT,tk_MK);
 
-                finish();
-            }
+
+              }
         });
 
     }

@@ -2,7 +2,6 @@ package com.example.shopquanao.Fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +17,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.shopquanao.Adapter.Adapter_GioHang;
 import com.example.shopquanao.Main_Home;
-import com.example.shopquanao.QuanLySession;
+import com.example.shopquanao.Model.QuanLySession;
 import com.example.shopquanao.R;
-import com.example.shopquanao.XacNhanDonHang_Activity;
 
 public class Fragment_Cart extends Fragment {
     ListView listView;
@@ -28,8 +26,8 @@ public class Fragment_Cart extends Fragment {
     TextView textView_thongbao;
     public static TextView textView_tongTien;
     Button button_thanhToan;
-
     QuanLySession session;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +48,8 @@ public class Fragment_Cart extends Fragment {
         textView_tongTien = view.findViewById(R.id.txt_tien);
         button_thanhToan = view.findViewById(R.id.btn_ThanhToan);
 
+        session = new QuanLySession(getContext());
+
         adapter_gioHang = new Adapter_GioHang(getContext(), Main_Home.arrayList_GioHang);
         listView.setAdapter(adapter_gioHang);
         kiem_Tra_Mang();
@@ -59,10 +59,8 @@ public class Fragment_Cart extends Fragment {
             @Override
             public void onClick(View v) {
 
-session.checkLogin();
-                Intent i=new Intent(getContext(), XacNhanDonHang_Activity.class);
+                session.checkLogin();
 
-                startActivity(i);
             }
         });
     }

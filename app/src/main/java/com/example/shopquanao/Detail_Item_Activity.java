@@ -28,6 +28,7 @@ public class Detail_Item_Activity extends AppCompatActivity {
     public ArrayList<GioHang> arrayList_GioHang;
     Button button;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,8 @@ public class Detail_Item_Activity extends AppCompatActivity {
         tenSP = intent.getStringExtra("TenSP");
         donGia = intent.getIntExtra("DonGia", 000);
         hinhAnh = intent.getStringExtra("HinhAnh");
+
+
 
         spinner = findViewById(R.id.spiner_detail);
         textView_TenSP = findViewById(R.id.txt_TenSP_detail);

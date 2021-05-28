@@ -25,56 +25,54 @@ public class Main_Home extends AppCompatActivity {
     BottomNavigationView navView;
     EditText searchView;
     public static ArrayList<GioHang> arrayList_GioHang;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_home);
-        if (arrayList_GioHang!=null)
-        {
+        if (arrayList_GioHang != null) {
 
-        }else {
-            arrayList_GioHang=new ArrayList<>();
+        } else {
+            arrayList_GioHang = new ArrayList<>();
         }
-        navView=findViewById(R.id.nav_view_thuvien);
+        navView = findViewById(R.id.nav_view_thuvien);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         navView.setSelectedItemId(R.id.nav_home);
-        searchView= findViewById(R.id.search_view);
+        searchView = findViewById(R.id.search_view);
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Main_Home.this,Search_Activity.class);
+                Intent intent = new Intent(Main_Home.this, Search_Activity.class);
                 startActivity(intent);
             }
         });
     }
 
 
-
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
-            switch (item.getItemId())
-            {
+            switch (item.getItemId()) {
                 case R.id.nav_home:
-                    fragment= new Fragment_Home();
+                    fragment = new Fragment_Home();
                     loadFragment(fragment);
 
                     return true;
 
                 case R.id.nav_list:
 
-                    fragment=new Fragment_Dashboard();
+                    fragment = new Fragment_Dashboard();
                     loadFragment(fragment);
 
                     return true;
                 case R.id.nav_cart:
 
-                    fragment=new Fragment_Cart();
+                    fragment = new Fragment_Cart();
                     loadFragment(fragment);
                     return true;
                 case R.id.nav_ACCOUNT:
-                    fragment=new Fragment_Account();
+                    fragment = new Fragment_Account();
                     loadFragment(fragment);
 
                     return true;
@@ -82,15 +80,15 @@ public class Main_Home extends AppCompatActivity {
 
             }
             return false;
-        }};
+        }
+    };
 
 
-    private  void loadFragment(Fragment fragment)
-    {
+    private void loadFragment(Fragment fragment) {
         //load fragment
-        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_fragment_thuvien,fragment);
-        //transaction.addToBackStack(null);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_fragment_thuvien, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

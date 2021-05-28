@@ -1,8 +1,13 @@
-package com.example.shopquanao;
+package com.example.shopquanao.Model;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.widget.Toast;
+
+import com.example.shopquanao.Login;
+import com.example.shopquanao.Main_Home;
 
 import java.util.HashMap;
 
@@ -11,7 +16,7 @@ public class QuanLySession {
     SharedPreferences pref;
 
     // Editor for Shared preferences
-    SharedPreferences.Editor editor;
+    Editor editor;
 
     // Context
     Context _context;
@@ -25,11 +30,15 @@ public class QuanLySession {
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
 
-    // User name (make variable public to access from outside)
-    public static final String KEY_NAME = "name";
 
-    // Email address (make variable public to access from outside)
-    public static final String KEY_EMAIL = "email";
+    public static final String KEY_ten = "ten";
+
+    public static final String KEY_dc = "dc";
+
+    public static final String KEY_sdt = "sdt";
+
+
+    public static final String KEY_mk = "mk";
 
     // Constructor
     public QuanLySession(Context context){
@@ -41,20 +50,21 @@ public class QuanLySession {
     /**
      * Create login session
      * */
-    public void createLoginSession(String sdt, String mk){
+    public void createLoginSession(String ten,String dc,String sdt, String mk){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
+        editor.putString(KEY_ten,ten);
+        editor.putString(KEY_dc,dc);
         // Storing name in pref
-        editor.putString(KEY_NAME, sdt);
+        editor.putString(KEY_sdt, sdt);
 
         // Storing email in pref
-        editor.putString(KEY_EMAIL, mk);
+        editor.putString(KEY_mk, mk);
+
+        // commit changes
         editor.commit();
     }
-    // commit changes
-
-
 
     /**
      * Check login method wil check user login status
@@ -67,35 +77,37 @@ public class QuanLySession {
             // user is not logged in redirect him to Login Activity
             Intent i = new Intent(_context, Login.class);
             // Closing all the Activities
-          i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
             // Add new Flag to start new Activity
-      i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             // Staring Login Activity
             _context.startActivity(i);
+        }else {
+            Intent i1=new Intent(_context, Main_Home.class);
+            _context.startActivity(i1);
+            Toast.makeText(_context, "Chào Mừng Khách Hàng Đến Với LoGan Shop", Toast.LENGTH_LONG).show();
         }
+
     }
 
 
-
-    /**
-     * Get stored session data
-     * */
     public HashMap<String, String> getUserDetails(){
-        HashMap<String, String> user = new HashMap<String, String>();
+        HashMap<String,String> user = new HashMap<String,String>();
         // user name
-        user.put(KEY_NAME, pref.getString(KEY_NAME, null));
+        user.put(KEY_ten, pref.getString(KEY_ten, null));
 
         // user email id
-        user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
-
+        user.put(KEY_dc, pref.getString(KEY_dc, null));
+        user.put(KEY_sdt, pref.getString(KEY_sdt, null));
+        user.put(KEY_mk, pref.getString(KEY_mk, null));
         // return user
         return user;
     }
-    /**
-     * Clear session details
-     * */
+
+
+
     public void logoutUser(){
         // Clearing all data from Shared Preferences
         editor.clear();
@@ -120,4 +132,4 @@ public class QuanLySession {
     public boolean isLoggedIn(){
         return pref.getBoolean(IS_LOGIN, false);
     }
-    }
+}
