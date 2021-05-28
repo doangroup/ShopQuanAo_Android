@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.widget.Toast;
 
 import com.example.shopquanao.Login;
 import com.example.shopquanao.Main_Home;
+import com.example.shopquanao.XacNhanDonHang_Activity;
 
 import java.util.HashMap;
 
@@ -82,9 +82,9 @@ public class QuanLySession {
             // Staring Login Activity
             _context.startActivity(i);
         }else {
-            Intent i1=new Intent(_context, Main_Home.class);
+            Intent i1=new Intent(_context, XacNhanDonHang_Activity.class);
             _context.startActivity(i1);
-            Toast.makeText(_context, "Chào Mừng Khách Hàng Đến Với LoGan Shop", Toast.LENGTH_LONG).show();
+
         }
 
     }

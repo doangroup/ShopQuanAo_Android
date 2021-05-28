@@ -22,7 +22,7 @@
                 android:textSize="30sp"></TextView>
 
             <ListView
-                android:id="@+id/listview_giohang"
+                android:id="@+id/listview_giohang_xacnhandonhang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></ListView>
         </FrameLayout>

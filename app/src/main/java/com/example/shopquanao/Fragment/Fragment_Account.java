@@ -32,7 +32,7 @@ public class Fragment_Account extends Fragment {
     QuanLySession session;
     String sdt, mk;
     KhachHangModel model = new KhachHangModel();
-    ArrayList<KhachHang> data;
+   ArrayList<KhachHang> data_account;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,14 +57,14 @@ public class Fragment_Account extends Fragment {
         HashMap<String, String> user = session.getUserDetails();
         sdt = user.get(QuanLySession.KEY_sdt);
         mk = user.get(QuanLySession.KEY_mk);
-        data = model.lay_KhachHang(sdt);
+        data_account = model.lay_KhachHang(sdt);
         textView_ten = view.findViewById(R.id.editTextTextPersonName2);
         textView_dc = view.findViewById(R.id.editTextTextPersonName3);
         textView_sdt = view.findViewById(R.id.editTextTextPassword);
         textView_mk = view.findViewById(R.id.editTextTextPassword2);
 
 
-        for (KhachHang khachHang : data) {
+        for (KhachHang khachHang : data_account) {
             textView_ten.setText(khachHang.getTenKhachHang());
             textView_dc.setText(khachHang.getDiaChi());
             textView_sdt.setText(khachHang.getsDT());

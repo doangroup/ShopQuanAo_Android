@@ -43,7 +43,7 @@ public class Fragment_Cart extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listView = view.findViewById(R.id.listview_giohang);
+        listView = view.findViewById(R.id.listview_giohang_xacnhandonhang);
         textView_thongbao = view.findViewById(R.id.txt_thongbao);
         textView_tongTien = view.findViewById(R.id.txt_tien);
         button_thanhToan = view.findViewById(R.id.btn_ThanhToan);
