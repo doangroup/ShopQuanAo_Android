@@ -16,7 +16,7 @@ public class KhachHangModel {
 
 
 
-    public ArrayList<KhachHang> lay_KhachHang(){
+    public ArrayList<KhachHang> lay_KhachHang(String sdt){
         ArrayList<KhachHang> arrayList = new ArrayList<>();
         try {
             if (z==null)
@@ -24,7 +24,7 @@ public class KhachHangModel {
                 z="Connection DB Fail!";
             }else
             {
-                PreparedStatement statement = con.prepareStatement("exec lay_KhachHang");
+                PreparedStatement statement = con.prepareStatement("exec lay_KhachHang'"+sdt+"'");
 
                 rs = statement.executeQuery();
 

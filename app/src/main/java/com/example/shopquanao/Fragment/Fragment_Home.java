@@ -30,6 +30,7 @@ public class Fragment_Home extends Fragment implements Adapter_recycleView_SanPh
     SanPham sanPham;
 
 
+
     ArrayList<SanPham> arrayList = new ArrayList<>();
 
 
@@ -55,6 +56,7 @@ public class Fragment_Home extends Fragment implements Adapter_recycleView_SanPh
         recyclerView.setAdapter(adapter_recycleView_sanPham);
         adapter_recycleView_sanPham.setOnItemClickListener(Fragment_Home.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
 
     }
 

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.shopquanao.Fragment.Fragment_Cart;
 import com.example.shopquanao.Model.GioHang;
 
 import java.util.ArrayList;
@@ -76,10 +77,15 @@ public class Detail_Item_Activity extends AppCompatActivity {
                         int tongTien = sl * donGia;
                         Main_Home.arrayList_GioHang.add(new GioHang(maSP, tenSP, tongTien, hinhAnh, sl));
                     }
+
+                    Intent i1=new Intent(Detail_Item_Activity.this, Main_Home.class);
+                    Detail_Item_Activity.this.startActivity(i1);
                 } else {
                     int ssl = Integer.parseInt(spinner.getSelectedItem().toString());
                     int tongTien = ssl * donGia;
                     Main_Home.arrayList_GioHang.add(new GioHang(maSP, tenSP, tongTien, hinhAnh, ssl));
+                    Intent i1=new Intent(Detail_Item_Activity.this, Main_Home.class);
+                    Detail_Item_Activity.this.startActivity(i1);
                 }
                 Toast.makeText(Detail_Item_Activity.this, "Mua thành công", Toast.LENGTH_LONG).show();
             }

@@ -31,9 +31,7 @@ public class QuanLySession {
     private static final String IS_LOGIN = "IsLoggedIn";
 
 
-    public static final String KEY_ten = "ten";
 
-    public static final String KEY_dc = "dc";
 
     public static final String KEY_sdt = "sdt";
 
@@ -50,12 +48,11 @@ public class QuanLySession {
     /**
      * Create login session
      * */
-    public void createLoginSession(String ten,String dc,String sdt, String mk){
+    public void createLoginSession(String sdt, String mk){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
-        editor.putString(KEY_ten,ten);
-        editor.putString(KEY_dc,dc);
+
         // Storing name in pref
         editor.putString(KEY_sdt, sdt);
 
@@ -96,10 +93,7 @@ public class QuanLySession {
     public HashMap<String, String> getUserDetails(){
         HashMap<String,String> user = new HashMap<String,String>();
         // user name
-        user.put(KEY_ten, pref.getString(KEY_ten, null));
 
-        // user email id
-        user.put(KEY_dc, pref.getString(KEY_dc, null));
         user.put(KEY_sdt, pref.getString(KEY_sdt, null));
         user.put(KEY_mk, pref.getString(KEY_mk, null));
         // return user
@@ -110,6 +104,7 @@ public class QuanLySession {
 
     public void logoutUser(){
         // Clearing all data from Shared Preferences
+        Main_Home.arrayList_GioHang=null;
         editor.clear();
         editor.commit();
 

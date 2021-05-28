@@ -30,7 +30,9 @@ public class Fragment_Account extends Fragment {
     Button button, button2;
     KhachHang khachHang = new KhachHang();
     QuanLySession session;
-    String ten, dc, sdt, mk;
+    String sdt, mk;
+    KhachHangModel model = new KhachHangModel();
+    ArrayList<KhachHang> data;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,24 +49,28 @@ public class Fragment_Account extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        arrayList = khachHangModel.lay_KhachHang();
+
+
+
         session = new QuanLySession(getContext());
 
+        HashMap<String, String> user = session.getUserDetails();
+        sdt = user.get(QuanLySession.KEY_sdt);
+        mk = user.get(QuanLySession.KEY_mk);
+        data = model.lay_KhachHang(sdt);
         textView_ten = view.findViewById(R.id.editTextTextPersonName2);
         textView_dc = view.findViewById(R.id.editTextTextPersonName3);
         textView_sdt = view.findViewById(R.id.editTextTextPassword);
         textView_mk = view.findViewById(R.id.editTextTextPassword2);
 
-        HashMap<String, String> user = session.getUserDetails();
-        ten = user.get(QuanLySession.KEY_ten);
-        dc = user.get(QuanLySession.KEY_dc);
-        sdt = user.get(QuanLySession.KEY_sdt);
-        mk = user.get(QuanLySession.KEY_mk);
 
-        textView_ten.setText(ten);
-        textView_dc.setText(dc);
-        textView_sdt.setText(sdt);
-        textView_mk.setText(mk);
+        for (KhachHang khachHang : data) {
+            textView_ten.setText(khachHang.getTenKhachHang());
+            textView_dc.setText(khachHang.getDiaChi());
+            textView_sdt.setText(khachHang.getsDT());
+            textView_mk.setText(khachHang.getMatKhau());
+        }
+
 
         button = view.findViewById(R.id.btn_signin);
         button.setOnClickListener(new View.OnClickListener() {
