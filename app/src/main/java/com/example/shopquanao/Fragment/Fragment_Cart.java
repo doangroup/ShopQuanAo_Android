@@ -20,6 +20,8 @@ import com.example.shopquanao.Main_Home;
 import com.example.shopquanao.Model.QuanLySession;
 import com.example.shopquanao.R;
 
+import java.text.DecimalFormat;
+
 public class Fragment_Cart extends Fragment {
     ListView listView;
     Adapter_GioHang adapter_gioHang;
@@ -78,12 +80,12 @@ public class Fragment_Cart extends Fragment {
     }
 
     public static void tongTien() {
-        int tongTien = 0;
+        float tongTien = 0;
         for (int i = 0; i < Main_Home.arrayList_GioHang.size(); i++) {
             tongTien += Main_Home.arrayList_GioHang.get(i).getGia();
         }
-
-        textView_tongTien.setText(String.valueOf(tongTien));
+        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
+        textView_tongTien.setText(decimalFormat.format(tongTien) +" "+"vnd");
     }
 
     private void CactOnItemListView() {

@@ -29,7 +29,7 @@ public class SanPhamModel implements Serializable {
                 rs = statement.executeQuery();
 
                 while (rs.next()) {
-                    arrayList.add( new SanPham( rs.getInt("MaSP"),rs.getInt("MaDM"),rs.getString("TenSP"),rs.getInt("SoLuong"),rs.getInt("DonGia"),rs.getString("HinhAnh"),rs.getString("GhiChu") ));// Đọc dữ liệu từ ResultSet
+                    arrayList.add( new SanPham( rs.getInt("MaSP"),rs.getInt("MaDM"),rs.getString("TenSP"),rs.getFloat("DonGia"),rs.getInt("SoLuong"),rs.getString("HinhAnh"),rs.getString("GhiChu") ));// Đọc dữ liệu từ ResultSet
                 }
 
                 con.close();// Đóng kết nối

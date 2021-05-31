@@ -14,9 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.shopquanao.Fragment.Fragment_Cart;
 import com.example.shopquanao.Model.GioHang;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Detail_Item_Activity extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class Detail_Item_Activity extends AppCompatActivity {
     ImageView imageView_HinhAnh;
     String tenSP, hinhAnh;
     int maSP;
-    int donGia;
+   float donGia;
     Spinner spinner;
     public ArrayList<GioHang> arrayList_GioHang;
     Button button;
@@ -37,7 +37,7 @@ public class Detail_Item_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         maSP = intent.getIntExtra("MaSP", 000);
         tenSP = intent.getStringExtra("TenSP");
-        donGia = intent.getIntExtra("DonGia", 000);
+        donGia = intent.getFloatExtra("DonGia", 000);
         hinhAnh = intent.getStringExtra("HinhAnh");
 
 
@@ -50,7 +50,8 @@ public class Detail_Item_Activity extends AppCompatActivity {
         Context c = getApplication();
         int id = getResources().getIdentifier("drawable/" + hinhAnh.replace(".jpg", ""), null, c.getPackageName());
         textView_TenSP.setText(tenSP);
-        textView_DonGia.setText(String.valueOf(donGia) + "vnd");
+        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
+        textView_DonGia.setText(decimalFormat.format(donGia)+" "+"vnd");
         imageView_HinhAnh.setImageResource(id);
 
 
@@ -74,7 +75,7 @@ public class Detail_Item_Activity extends AppCompatActivity {
                         }
                     if (tonTai == false) {
 
-                        int tongTien = sl * donGia;
+                        float tongTien = sl * donGia;
                         Main_Home.arrayList_GioHang.add(new GioHang(maSP, tenSP, tongTien, hinhAnh, sl));
                     }
 
@@ -82,7 +83,7 @@ public class Detail_Item_Activity extends AppCompatActivity {
                     Detail_Item_Activity.this.startActivity(i1);
                 } else {
                     int ssl = Integer.parseInt(spinner.getSelectedItem().toString());
-                    int tongTien = ssl * donGia;
+                    float tongTien = ssl * donGia;
                     Main_Home.arrayList_GioHang.add(new GioHang(maSP, tenSP, tongTien, hinhAnh, ssl));
                     Intent i1=new Intent(Detail_Item_Activity.this, Main_Home.class);
                     Detail_Item_Activity.this.startActivity(i1);

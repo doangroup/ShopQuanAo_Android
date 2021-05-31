@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class SanPham implements Serializable {
 int maSP,maDM;
 String tenSP;
-int donGia;
+float donGia;
 int soLuong;
 String hinhAnh,ghiChu;
 
-    public SanPham(int maSP, int maDM, String tenSP, int donGia, int soLuong, String hinhAnh, String ghiChu) {
+    public SanPham(int maSP, int maDM, String tenSP, float donGia, int soLuong, String hinhAnh, String ghiChu) {
         this.maSP = maSP;
         this.maDM = maDM;
         this.tenSP = tenSP;
@@ -43,11 +43,11 @@ String hinhAnh,ghiChu;
         this.tenSP = tenSP;
     }
 
-    public int getDonGia() {
+    public float getDonGia() {
         return donGia;
     }
 
-    public void setDonGia(int donGia) {
+    public void setDonGia(float donGia) {
         this.donGia = donGia;
     }
 

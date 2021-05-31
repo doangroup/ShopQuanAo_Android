@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.shopquanao.Model.GioHang;
 import com.example.shopquanao.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Adapter_XacNhanGioHang extends BaseAdapter {
@@ -71,7 +72,8 @@ public class Adapter_XacNhanGioHang extends BaseAdapter {
 
         GioHang gioHang = (GioHang) getItem(position);
         viewHolder.txt_ten.setText(gioHang.getTenSP());
-        viewHolder.txt_gia.setText(String.valueOf(gioHang.getGia()));
+        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
+        viewHolder.txt_gia.setText(decimalFormat.format(gioHang.getGia())+" "+"vnd");
         Context c = context;
         int id = c.getResources().getIdentifier("drawable/" + gioHang.getHinhSP().replace(".jpg", ""), null, c.getPackageName());
         viewHolder.imageView_giohang.setImageResource(id);

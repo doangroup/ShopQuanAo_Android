@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.shopquanao.Model.SanPham;
 import com.example.shopquanao.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class Adapter_listView_SanPham extends ArrayAdapter<SanPham> {
@@ -35,7 +36,8 @@ public class Adapter_listView_SanPham extends ArrayAdapter<SanPham> {
 TextView txt_gia=converView.findViewById(R.id.textView_DonGia);
         ImageView imageView=converView.findViewById(R.id.image_Hinh_sanPham);
         txt_tenSP.setText(model.getTenSP());
-txt_gia.setText(String.valueOf(model.getDonGia()));
+        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
+txt_gia.setText(decimalFormat.format(model.getDonGia())+" "+"vnd");
 
         Context c = getContext();
         int id = c.getResources().getIdentifier("drawable/"+model.getHinhAnh().replace(".jpg",""), null, c.getPackageName());

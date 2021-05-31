@@ -12,6 +12,7 @@ import com.example.shopquanao.Model.KhachHang;
 import com.example.shopquanao.Model.KhachHangModel;
 import com.example.shopquanao.Model.QuanLySession;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -56,11 +57,11 @@ public class XacNhanDonHang_Activity extends AppCompatActivity { ListView listVi
         textView_tt=findViewById(R.id.txt_tien);
     }
     public  void tongTien() {
-        int tongTien = 0;
+        float tongTien = 0;
         for (int i = 0; i < Main_Home.arrayList_GioHang.size(); i++) {
             tongTien += Main_Home.arrayList_GioHang.get(i).getGia();
         }
-
-        textView_tt.setText(String.valueOf(tongTien)+""+"vnd");
+        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
+        textView_tt.setText(decimalFormat.format(tongTien)+" "+"vnd");
     }
 }

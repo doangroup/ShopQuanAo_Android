@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.shopquanao.Model.SanPham;
 import com.example.shopquanao.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Adapter_recycleView_SanPham extends RecyclerView.Adapter<Adapter_recycleView_SanPham.SanPhamHolder> {
@@ -51,7 +52,8 @@ public interface OnItemClickListener {
         Context c = context;
         int id = c.getResources().getIdentifier("drawable/"+sp.getHinhAnh().replace(".jpg",""), null, c.getPackageName());
         holder.txt_tenSP.setText(arrayList.get(position).getTenSP());
-        holder.txt_gia.setText(String.valueOf(arrayList.get(position).getDonGia()));
+        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
+        holder.txt_gia.setText(decimalFormat.format(arrayList.get(position).getDonGia()) +" "+"vnd");
         holder.imageView.setImageResource(id);
 
 

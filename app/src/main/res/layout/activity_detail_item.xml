@@ -34,6 +34,7 @@
             android:textStyle="bold"></TextView>
 
         <TextView
+            android:textColor="#f20"
             android:id="@+id/txt_Dongia_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,8 +44,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số Lượng:"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
             <Spinner
                 android:layout_gravity="center"
                 android:textAlignment="center"
@@ -52,14 +58,15 @@
                 android:id="@+id/spiner_detail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"></Spinner>
-            <Button
-                android:id="@+id/btn_themgioHang_Detail"
-                android:layout_width="217dp"
-                android:layout_height="61dp"
-                android:text="Thêm Vào Giỏ Hàng"
-                android:textSize="12dp"
-                android:textStyle="bold"></Button>
+
         </LinearLayout>
+        <Button
+            android:id="@+id/btn_themgioHang_Detail"
+            android:layout_width="217dp"
+            android:layout_height="61dp"
+            android:text="Thêm Vào Giỏ Hàng"
+            android:textSize="12dp"
+            android:textStyle="bold"></Button>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

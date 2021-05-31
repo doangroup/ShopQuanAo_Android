@@ -6,11 +6,11 @@ public class GioHang implements Serializable {
 
     public  int maSP;
     public String tenSP;
-    public  int gia;
+    public  float gia;
     public String hinhSP;
     public int soLuong;
 
-    public GioHang(int maSP, String tenSP, int gia, String hinhSP, int soLuong) {
+    public GioHang(int maSP, String tenSP, float gia, String hinhSP, int soLuong) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.gia = gia;
@@ -34,11 +34,11 @@ public class GioHang implements Serializable {
         this.tenSP = tenSP;
     }
 
-    public int getGia() {
+    public float getGia() {
         return gia;
     }
 
-    public void setGia(int gia) {
+    public void setGia(float gia) {
         this.gia = gia;
     }
 
