@@ -48,10 +48,16 @@ public class Login extends AppCompatActivity {
 
                 KhachHangLogin khachHangLogin = new KhachHangLogin();
                 String kq = khachHangLogin.Login(tk_SDT, tk_MK);
-                session.createLoginSession(tk_SDT,tk_MK);
-                Intent myIntent = new Intent(Login.this, Main_Home.class);
-                startActivity(myIntent);
-                Toast.makeText(Login.this, "Chào Mừng Khách Hàng Đến Với LoGan Shop", Toast.LENGTH_LONG).show();
+                if (kq=="true"){
+                    session.createLoginSession(tk_SDT,tk_MK);
+                    Intent myIntent = new Intent(Login.this, Main_Home.class);
+                    startActivity(myIntent);
+                    Toast.makeText(Login.this, "Chào Mừng Khách Hàng Đến Với LoGan Shop", Toast.LENGTH_LONG).show();
+
+                }else {
+                    Toast.makeText(Login.this, "Sai User hoặc Mật Khẩu", Toast.LENGTH_LONG).show();
+                }
+
 
               }
         });

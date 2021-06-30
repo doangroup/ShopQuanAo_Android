@@ -1,8 +1,9 @@
 package com.example.shopquanao.Model;
+import com.example.shopquanao.DB.ConnectionDB;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import com.example.shopquanao.DB.ConnectionDB;
 public class KhachHangLogin {
     ConnectionDB connectionDB = new ConnectionDB();
     String z="";
@@ -20,10 +21,10 @@ public class KhachHangLogin {
 
                 if (rs.next()) {
 
-                    z = "Đăng Nhập Thành Công";
+                    z = "true";
 
                 } else {
-                    z = "Sai User hoặc Mật Khẩu";
+                    z = "false";
                 }
 
             }
