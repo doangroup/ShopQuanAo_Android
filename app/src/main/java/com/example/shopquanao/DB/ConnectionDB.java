@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 public class ConnectionDB {
-    String ip = "192.168.1.5";
+    String ip = "192.168.1.7";
     String classs = "net.sourceforge.jtds.jdbc.Driver";
     String db = "QLSHOPQUANAO";
     String un = "sa";

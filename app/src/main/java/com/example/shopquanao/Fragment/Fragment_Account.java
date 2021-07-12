@@ -32,7 +32,7 @@ public class Fragment_Account extends Fragment {
     QuanLySession session;
     String sdt, mk;
     KhachHangModel model = new KhachHangModel();
-   ArrayList<KhachHang> data_account;
+  public static ArrayList<KhachHang> data_account;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
