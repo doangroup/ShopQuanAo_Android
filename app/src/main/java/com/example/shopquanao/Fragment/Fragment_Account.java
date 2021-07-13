@@ -77,11 +77,11 @@ public class Fragment_Account extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final int min = 1;
-                final int max = 80000;
+                final int min = 1000;
+                final int max = 8000;
                 Random random = new Random();
                 int maKhach = random.nextInt((max - min) + 1) + min;
-
+               // int maKhach=random.nextInt(300);
                 boolean kiemTra = false;
 
                 khachHang.setMaKhachHang(maKhach);

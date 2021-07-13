@@ -45,7 +45,7 @@ public class KhachHangModel {
 
         try {
 
-            PreparedStatement statement = con.prepareStatement("exec DangKyThanhVien'"+maKH+"','"+tenKH+"','"+diaChi+"','"+SDT+"','"+matKhau+"'");
+            PreparedStatement statement = con.prepareStatement("SET IDENTITY_INSERT KhachHang ON exec DangKyThanhVien'"+maKH+"','"+tenKH+"','"+diaChi+"','"+SDT+"','"+matKhau+"'");
             kiemTra = true;
             rs = statement.executeQuery();
             con.close();

@@ -16,7 +16,7 @@ import com.example.shopquanao.Model.QuanLySession;
 
 public class Login extends AppCompatActivity {
     EditText editText_tk, editText_mk;
-    Button button;
+    Button button,button2;
     ConnectionDB connectionDB;
     String tk_SDT,tk_MK;
     QuanLySession session;
@@ -39,6 +39,16 @@ public class Login extends AppCompatActivity {
         editText_tk.setText(tk_SDT);
         editText_mk.setText(tk_MK);
 
+        button2= findViewById(R.id.button_DangKy);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Login.this, Main_Home.class);
+                startActivity(myIntent);
+
+
+            }
+        });
         button = findViewById(R.id.button_DangNhap);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

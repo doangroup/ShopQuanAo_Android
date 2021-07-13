@@ -59,18 +59,6 @@ public class XacNhanDonHang_Activity extends AppCompatActivity {
             maKhach = k.getMaKhachHang();
         }
         tongTien();
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            @Override
-//            public void onClick(View v) {
-//try {
-//    Add();
-//}catch (Exception e){
-//    e.getMessage();
-//}
-//
-//            }
-//        });
 
 
     }
