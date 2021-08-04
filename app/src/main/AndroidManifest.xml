@@ -23,6 +23,7 @@
         <activity android:name=".DashBoard_Activity" />
         <activity android:name=".Search_Activity" />
         <activity android:name=".XacNhanDonHang_Activity" />
+        <activity android:name=".DangKy_Activity" />
     </application>
 
 </manifest>

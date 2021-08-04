@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/FlatPink"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/textView4_d"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="73dp"
+        android:layout_marginTop="10dp"
+        android:text="Tạo Tài Khoản"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2_d"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:padding="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/white"
+        android:textColorHint="#E61010"
+        android:textColor="#E61010"
+        android:ems="10"
+        android:hint="Tên Khách Hàng"
+        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4_d" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3_d"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Địa Chỉ"
+        android:textColorHint="#E61010"
+        android:textColor="#E61010"
+        android:drawableLeft="@drawable/ic_baseline_home_work_24"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2_d" />
+
+    <Button
+        android:id="@+id/btn_signin_d"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#AF0404"
+        android:text="Đăng Ký"
+        android:textSize="20dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2_d" />
+
+    <Button
+        android:id="@+id/btn_cancel_d"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#AF0404"
+        android:text="Trở Về"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintTop_toBottomOf="@+id/btn_signin_d" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword_d"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:padding="15dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_phone_android_24"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:textColorHint="#E61010"
+        android:textColor="#E61010"
+        android:inputType="text"
+        android:hint="Số Điện Thoại"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3_d" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2_d"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/key"
+        android:ems="10"
+        android:background="@color/white"
+        android:inputType="text"
+        android:hint="Mật Khẩu"
+        android:textColorHint="#E61010"
+        android:textColor="#E61010"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2_d"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword_d" />
+</androidx.constraintlayout.widget.ConstraintLayout>

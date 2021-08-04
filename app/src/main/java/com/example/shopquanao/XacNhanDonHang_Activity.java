@@ -2,7 +2,6 @@ package com.example.shopquanao;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,14 +32,14 @@ public class XacNhanDonHang_Activity extends AppCompatActivity {
     KhachHangModel model = new KhachHangModel();
     QuanLySession session;
     String sdt;
-    Button button;
+
     int maKhach;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = new QuanLySession(this);
-        button = findViewById(R.id.btn_XacNhanDonHang);
+
         HashMap<String, String> user = session.getUserDetails();
         sdt = user.get(QuanLySession.KEY_sdt);
         data = model.lay_KhachHang(sdt);
@@ -62,6 +61,7 @@ public class XacNhanDonHang_Activity extends AppCompatActivity {
 
 
     }
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public  void Add(){
     Random rd = new Random();

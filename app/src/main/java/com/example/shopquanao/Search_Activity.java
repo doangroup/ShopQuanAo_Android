@@ -3,7 +3,6 @@ package com.example.shopquanao;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,7 +68,7 @@ public class Search_Activity extends AppCompatActivity implements Adapter_recycl
     @Override
     public void onItemClick(int position) {
         sanPham = arrayList.get(position);
-        Toast.makeText(this, ""+position, Toast.LENGTH_LONG).show();
+
 
         Intent i = new Intent(this, Detail_Item_Activity.class);
         i.putExtra("MaSP", arrayList.get(position).getMaSP());

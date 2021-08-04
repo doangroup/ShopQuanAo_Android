@@ -12,9 +12,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginLeft="73dp"
         android:layout_marginTop="10dp"
-        android:text="Tạo Tài Khoản"
+        android:text="Tài Khoản"
         android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -66,9 +65,10 @@
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#AF0404"
-        android:text="Đăng Ký"
+        android:text="Đăng Nhập"
         android:textSize="20dp"
 
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,6 @@ import com.example.shopquanao.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 public class Fragment_Account extends Fragment {
     TextView textView_ten, textView_dc, textView_sdt, textView_mk;
@@ -73,42 +71,22 @@ public class Fragment_Account extends Fragment {
 
 
         button = view.findViewById(R.id.btn_signin);
+        button2 = view.findViewById(R.id.btn_cancel);
+
+        if (!session.isLoggedIn()){
+            button2.setVisibility(View.INVISIBLE);
+            button.setVisibility(View.VISIBLE);
+        }else {
+            button.setVisibility(View.INVISIBLE);
+            button2.setVisibility(View.VISIBLE);
+        }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                final int min = 1000;
-                final int max = 8000;
-                Random random = new Random();
-                int maKhach = random.nextInt((max - min) + 1) + min;
-               // int maKhach=random.nextInt(300);
-                boolean kiemTra = false;
-
-                khachHang.setMaKhachHang(maKhach);
-                khachHang.setTenKhachHang(textView_ten.getText().toString());
-                khachHang.setDiaChi(textView_dc.getText().toString());
-                khachHang.setsDT(textView_sdt.getText().toString());
-                khachHang.setMatKhau(textView_mk.getText().toString());
-
-                kiemTra = khachHangModel.DangKyThanhVien(khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.getDiaChi(), khachHang.getsDT(), khachHang.getMatKhau());
-
-                if (kiemTra == true) {
-                    Toast.makeText(getContext(), "Đăng ký thành công", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(getContext(), Login.class);
-                    i.putExtra("a1", textView_sdt.getText().toString());
-                    i.putExtra("a2", textView_mk.getText().toString());
-                    i.putExtra("a3", textView_ten.getText().toString());
-                    i.putExtra("a4", textView_dc.getText().toString());
-                    startActivity(i);
-                } else {
-                    Toast.makeText(getContext(), "Đăng ký thất bại", Toast.LENGTH_LONG).show();
-                }
-
+                Intent myIntent = new Intent(getContext(), Login.class);
+                startActivity(myIntent);
             }
         });
-
-
-        button2 = view.findViewById(R.id.btn_cancel);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

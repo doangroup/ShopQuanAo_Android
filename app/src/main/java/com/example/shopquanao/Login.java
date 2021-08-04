@@ -16,10 +16,11 @@ import com.example.shopquanao.Model.QuanLySession;
 
 public class Login extends AppCompatActivity {
     EditText editText_tk, editText_mk;
-    Button button,button2;
+    Button button, button2;
     ConnectionDB connectionDB;
-    String tk_SDT,tk_MK;
+    String tk_SDT, tk_MK;
     QuanLySession session;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,7 @@ public class Login extends AppCompatActivity {
         editText_tk.setText(tk_SDT);
         editText_mk.setText(tk_MK);
 
-        button2= findViewById(R.id.button_DangKy);
+        button2 = findViewById(R.id.button_DangKy);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,19 +59,25 @@ public class Login extends AppCompatActivity {
 
                 KhachHangLogin khachHangLogin = new KhachHangLogin();
                 String kq = khachHangLogin.Login(tk_SDT, tk_MK);
-                if (kq=="true"){
-                    session.createLoginSession(tk_SDT,tk_MK);
+                if (kq == "true") {
+                    session.createLoginSession(tk_SDT, tk_MK);
                     Intent myIntent = new Intent(Login.this, Main_Home.class);
                     startActivity(myIntent);
                     Toast.makeText(Login.this, "Chào Mừng Khách Hàng Đến Với LoGan Shop", Toast.LENGTH_LONG).show();
 
-                }else {
+                } else {
                     Toast.makeText(Login.this, "Sai User hoặc Mật Khẩu", Toast.LENGTH_LONG).show();
                 }
 
 
-              }
+            }
         });
-
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Login.this, DangKy_Activity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 }

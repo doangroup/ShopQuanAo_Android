@@ -49,6 +49,7 @@ public class Adapter_XacNhanGioHang extends BaseAdapter {
         public TextView txt_ten, txt_gia;
         ImageView imageView_giohang;
         Button btn_so;
+        Button button;
 
     }
 
@@ -64,6 +65,7 @@ public class Adapter_XacNhanGioHang extends BaseAdapter {
             viewHolder.txt_gia = view.findViewById(R.id.txt_gia_gio_hang);
             viewHolder.imageView_giohang = view.findViewById(R.id.image_cart);
             viewHolder.btn_so= view.findViewById(R.id.btn_So_gioHang);
+            viewHolder.button = view.findViewById(R.id.btn_XacNhanDonHang);
 
             view.setTag(viewHolder);
         } else {
@@ -78,8 +80,7 @@ public class Adapter_XacNhanGioHang extends BaseAdapter {
         int id = c.getResources().getIdentifier("drawable/" + gioHang.getHinhSP().replace(".jpg", ""), null, c.getPackageName());
         viewHolder.imageView_giohang.setImageResource(id);
 
-        viewHolder.btn_so.setText(String.valueOf(gioHang.getSoLuong()));
-
+      
 
 
 
